@@ -57,6 +57,7 @@ namespace InvoicingSystem.Controllers
                     CustomerId = Convert.ToInt32(dr["CustomerId"]),
                     CustomerName = Convert.ToString(dr["CustomerName"]),
                     Email = Convert.ToString(dr["Email"]),
+                    Address = Convert.ToString(dr["Address"]),
                     ContactNo = Convert.ToString(dr["ContactNo"]),
                     DateOfBirth = Convert.ToDateTime(dr["DateOfBirth"]),
                     Gender = Convert.ToString(dr["Gender"])
@@ -87,6 +88,7 @@ namespace InvoicingSystem.Controllers
                 CustomerId = Convert.ToInt32(dt.Rows[0]["CustomerId"]),
                 CustomerName = Convert.ToString(dt.Rows[0]["CustomerName"]),
                 Email = Convert.ToString(dt.Rows[0]["Email"]),
+                Address = Convert.ToString(dt.Rows[0]["Address"]),
                 ContactNo = Convert.ToString(dt.Rows[0]["ContactNo"]),
                 DateOfBirth = Convert.ToDateTime(dt.Rows[0]["DateOfBirth"]),
                 Gender = Convert.ToString(dt.Rows[0]["Gender"])
@@ -141,6 +143,7 @@ namespace InvoicingSystem.Controllers
                 CustomerId = Convert.ToInt32(dt.Rows[0]["CustomerId"]),
                 CustomerName = Convert.ToString(dt.Rows[0]["CustomerName"]),
                 Email = Convert.ToString(dt.Rows[0]["Email"]),
+                Address = Convert.ToString(dt.Rows[0]["Address"]),
                 ContactNo = Convert.ToString(dt.Rows[0]["ContactNo"]),
                 DateOfBirth = Convert.ToDateTime(dt.Rows[0]["DateOfBirth"]),
                 Gender = Convert.ToString(dt.Rows[0]["Gender"])
@@ -151,10 +154,11 @@ namespace InvoicingSystem.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            query = "UPDATE Customers SET CustomerName = @CustomerName, Email = @Email, ContactNo = @ContactNo, DateOfBirth = @DateOfBirth, Gender = @Gender WHERE CustomerId = @CustomerId";
+            query = "UPDATE Customers SET CustomerName = @CustomerName, Email = @Email, Address = @Address, ContactNo = @ContactNo, DateOfBirth = @DateOfBirth, Gender = @Gender WHERE CustomerId = @CustomerId";
             cmd = new SqlCommand(query, _sqlConnection);
             cmd.Parameters.AddWithValue("@CustomerName", existingCustomer.CustomerName);
             cmd.Parameters.AddWithValue("@Email", existingCustomer.Email);
+            cmd.Parameters.AddWithValue("@Address", existingCustomer.Address);
             cmd.Parameters.AddWithValue("@ContactNo", existingCustomer.ContactNo);
             cmd.Parameters.AddWithValue("@DateOfBirth", existingCustomer.DateOfBirth);
             cmd.Parameters.AddWithValue("@Gender", existingCustomer.Gender);
@@ -182,10 +186,11 @@ namespace InvoicingSystem.Controllers
             }
 
             _sqlConnection.Open();
-            var query = "UPDATE Customers SET CustomerName = @CustomerName, Email = @Email, ContactNo = @ContactNo, DateOfBirth = @DateOfBirth, Gender = @Gender WHERE CustomerId = @CustomerId";
+            var query = "UPDATE Customers SET CustomerName = @CustomerName, Email = @Email, Address = @Address, ContactNo = @ContactNo, DateOfBirth = @DateOfBirth, Gender = @Gender WHERE CustomerId = @CustomerId";
             var cmd = new SqlCommand(query, _sqlConnection);
             cmd.Parameters.AddWithValue("@CustomerName", updatedCustomer.CustomerName);
             cmd.Parameters.AddWithValue("@Email", updatedCustomer.Email);
+            cmd.Parameters.AddWithValue("@Address", updatedCustomer.Address);
             cmd.Parameters.AddWithValue("@ContactNo", updatedCustomer.ContactNo);
             cmd.Parameters.AddWithValue("@DateOfBirth", updatedCustomer.DateOfBirth);
             cmd.Parameters.AddWithValue("@Gender", updatedCustomer.Gender);

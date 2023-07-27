@@ -40,3 +40,10 @@ D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\obj\Debug\net7.0\re
 D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\obj\Debug\net7.0\InvoicingSystem.pdb
 D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\obj\Debug\net7.0\InvoicingSystem.genruntimeconfig.cache
 D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\obj\Debug\net7.0\ref\InvoicingSystem.dll
+D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\bin\Debug\net7.0\System.Web.Mvc.dll
+D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\bin\Debug\net7.0\System.Web.Razor.dll
+D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\bin\Debug\net7.0\System.Web.Helpers.dll
+D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\bin\Debug\net7.0\System.Web.WebPages.Deployment.dll
+D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\bin\Debug\net7.0\System.Web.WebPages.Razor.dll
+D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\bin\Debug\net7.0\System.Web.WebPages.dll
+D:\Scienter\Training\Web API\InvoicingSystem\InvoicingSystem\bin\Debug\net7.0\Microsoft.Web.Infrastructure.dll

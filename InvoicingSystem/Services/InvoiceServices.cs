@@ -178,8 +178,7 @@ namespace InvoicingSystem.Services
             {
                 return false;
             }
-
-           
+     
                 _sqlConnection.Open();
                 var query = "UPDATE Invoices SET InvoiceDate = @InvoiceDate, CustomerName = @CustomerName, ProductName = @ProductName, UnitsPerProduct = @UnitsPerProduct, UnitPricePerProduct = @UnitPricePerProduct, TotalPricePerProduct = @TotalPricePerProduct, DiscountPerProduct = @DiscountPerProduct, CustomerId = @CustomerId WHERE InvoiceNumber = @InvoiceNumber";
                 using (var cmd = new SqlCommand(query, _sqlConnection))

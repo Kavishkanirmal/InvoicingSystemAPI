@@ -7,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<InvoiceServices>();
 builder.Services.AddSingleton<ProductServices>();
 builder.Services.AddSingleton<CustomerServices>();
+builder.Services.AddSingleton<AdminServices>();
+builder.Services.AddSingleton<CustomerChangesServices>();
+builder.Services.AddSingleton<ProductChangesServices>();
+builder.Services.AddSingleton<InvoiceChangesServices>();
 
 // Other service registrations
 builder.Services.AddControllers().AddNewtonsoftJson();

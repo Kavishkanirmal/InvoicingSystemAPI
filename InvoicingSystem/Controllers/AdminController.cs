@@ -1,44 +1,33 @@
 ﻿using InvoicingSystem.Models;
+using InvoicingSystem.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace InvoicingSystem.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class AdminController : Controller
     {
 
-        private readonly SqlConnection _sqlConnection;
+        private readonly AdminServices _adminService;
 
-        public AdminController(IConfiguration configuration)
+        public AdminController(AdminServices adminService)
         {
-            var connectionString = configuration.GetConnectionString("InvoicingSystem2");
-            _sqlConnection = new SqlConnection(connectionString);
+            _adminService = adminService;
         }
 
         [HttpGet("GetByUsername/{username}")]
-        public IActionResult GetAdmin(string username)
+        public async Task<IActionResult> GetAdmin(string username)
         {
-            _sqlConnection.Open();
-            var query = "SELECT * FROM Admin WHERE Username = @username";
-            var cmd = new SqlCommand(query, _sqlConnection);
-            cmd.Parameters.AddWithValue("@Username", username);
-            var adapter = new SqlDataAdapter(cmd);
-            var dt = new DataTable();
-            adapter.Fill(dt);
-
-            if (dt.Rows.Count == 0)
+            var admin = await _adminService.GetAdminByUsername(username);
+            if (admin == null)
             {
                 return NotFound("User not found.");
             }
 
-            var Admin = new Admin()
-            {
-                Username = Convert.ToString(dt.Rows[0]["Username"]),
-                Password = Convert.ToString(dt.Rows[0]["Password"]),
-            };
-
-            return Ok(Admin);
+            return Ok(admin);
         }
 
     }
